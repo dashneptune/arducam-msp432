@@ -65,11 +65,14 @@
 
 #ifndef SRC_PICAM_H_
 #define SRC_PICAM_H_
+#include <stdint.h>
 
+
+/*
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdint.h>
+
 #include <unistd.h>
 #include <getopt.h>
 #include <fcntl.h>
@@ -77,7 +80,7 @@
 #include <linux/types.h>
 #include <linux/spi/spidev.h>
 #include <linux/i2c-dev.h>
-
+*/
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
 
 #define regtype volatile uint8_t
@@ -148,6 +151,7 @@
 /****************************************************/
 /* ArduChip related definition 											*/
 /****************************************************/
+/*
 #define ARDUCHIP_TEST1       	0x00  //TEST register
 #define ARDUCHIP_TEST2      	0x01  //TEST register
 
@@ -179,7 +183,7 @@
 #define VSYNC_MASK         		0x01
 #define SHUTTER_MASK       		0x02
 #define CAP_DONE_MASK      		0x08
-
+*/
 /****************************************************/
 
 
@@ -200,17 +204,17 @@ struct CAM{
 struct CAM myCAM;
 
 //File Handle
-FILE * fp;
+/*FILE * fp;
 char filePath[20];
 char nowtime[20];
-
+*/
 //I2C handle
-int i2c1;
-static char *i2cdev1 = "/dev/i2c-1";
+//int i2c1;
+//static char *i2cdev1 = "/dev/i2c-1";
 
 //SPI handle
-int spi0;
-static const char *spidev0 = "/dev/spidev1.0"; 
+//int spi0;
+//static const char *spidev0 = "/dev/spidev1.0"; 
 static uint8_t mode=0;
 static uint8_t bits = 8;
 static uint16_t delay;
@@ -245,7 +249,7 @@ uint8_t rdSensorReg16_8(uint16_t regID, uint8_t* regDat);
 void OV2640_set_JPEG_size(uint8_t size);
 void set_format(uint8_t fmt);
 
-void delayms(int i);
+//void delayms(int i);
 
 
 #endif /* SRC_PICAM_H_ */
